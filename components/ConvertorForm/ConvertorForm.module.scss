@@ -1,0 +1,131 @@
+@import "styles/helpers.scss";
+
+.ConvertorForm {
+  display: grid;
+  gap: var(--gap) 0;
+  margin: var(--gap) auto;
+  padding: var(--gap);
+  box-sizing: border-box;
+  max-width: var(--desktop);
+  align-content: start;
+  grid-template-columns: repeat(2, calc(50vw - var(--gap)));
+  grid-template-areas: 
+    "from from"
+    "input input"
+    "rate switch"
+    "to to"
+    "output output";
+
+  @media (min-width: 38rem) {
+    grid-template-columns: 1fr minmax(min-content, auto) 1fr;
+    grid-template-areas: 
+      "from switch to" 
+      "input . output"
+      ". . rate";
+  }
+
+  &__Switch {
+    all: unset;
+    appearance: none;
+    font-size: 0;
+    margin: 0;
+    cursor: pointer;
+    color: var(--color-text);
+
+    transform: translateX(calc(-50vw + var(--gap)));
+    text-indent: calc(50vw - var(--gap));
+    width: calc(100vw - calc(var(--gap) * 2));
+
+    &:focus,
+    &:active,
+    &:hover {
+      color: var(--color-active);
+    }
+
+    @media (min-width: 38rem) {
+      margin: 0 var(--gap);
+      transform: unset;
+      text-indent: unset;
+      width: auto;
+    }
+
+    &::before {
+      content: "⇅";
+      @media (min-width: 38rem) {
+        content: "⇆";
+      }
+      font-size: 2rem;
+    }
+  }
+
+  &__From {
+    grid-area: from;
+    select {
+      width: 100%;
+    }
+  }
+
+  &__To {
+    grid-area: to;
+    select {
+      width: 100%;
+    }
+  }
+
+  &__Input {
+    grid-area: input;
+    display: flex;
+    align-items: center;
+    line-height: 5rem;
+    font-size: 4rem;
+    height: 5rem;
+    position: relative;
+    color: var(--color-text);
+
+    input {
+      appearance: none;
+      all: unset;
+      flex-grow: 1;
+      line-height: 5rem;
+      font-size: 4rem;
+      height: 5rem;
+      box-sizing: border-box;
+      width: max-content;
+      max-width: 100%;
+
+      @media (min-width: 38rem) {
+        margin-inline-start: var(--space-xs);
+      }
+    }
+  }
+
+  &__Output {
+    grid-area: output;
+
+    line-height: 5rem;
+    font-size: 4rem;
+    min-height: 5rem;
+    word-break: break-all;
+  }
+
+  &__Rate {
+    grid-area: rate;
+
+    @include hideOnMobile;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-text);
+    justify-self: end;
+    width: min-content;
+
+    @media (min-width: 38rem) {
+      font-size: 1rem;
+      text-align: start;
+      width: max-content;
+      justify-self: start;
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
