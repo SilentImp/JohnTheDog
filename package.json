@@ -10,7 +10,11 @@
     "start": "next start",
     "lint": "eslint . --ext js,jsx",
     "lint:fix": "eslint . --ext js,jsx --fix",
-    "test": "jest"
+    "test": "jest",
+    "docker:build": "docker build . -t silentimp/currencyconvertor",
+    "docker:run": "docker run -p 3000:3000 silentimp/currencyconvertor",
+    "docker:publish": "docker push silentimp/currencyconvertor",
+    "compose": "DEFAULT_HOST=webauth.courses docker-compose -f docker-compose.yml up --build -d"
   },
   "husky": {
     "hooks": {

@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  adyen:
+    image: silentimp/currencyconvertor:latest
+    expose:
+      - "3000"
+    environment:
+      WEB_PORTS: "80 443"
+      VIRTUAL_HOST: "${DEFAULT_HOST}"
+      VIRTUAL_PORT: 3000
+    networks:
+      - adyen_network
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - DEFAULT_HOST=${DEFAULT_HOST}
+    depends_on:
+      - adyen
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    networks:
+      - adyen_network
+  watchtower:
+    image: v2tec/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300
+
+networks:
+  adyen_network:
