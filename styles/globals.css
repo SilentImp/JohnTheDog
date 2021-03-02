@@ -1,0 +1,20 @@
+:root {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --color-text: #333;
+  --color-help: #aaa;
+
+  --desktop: 80rem;
+  --tablet: 38rem;
+
+  --gap: 1.5rem;
+  --space-xs: .25rem;
+  --space-s: .5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 2rem;
+  --border-width: .0625rem;
+  --border-color: var(--color-help);
+
+  color: var(--color-text);
+}

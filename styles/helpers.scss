@@ -1,0 +1,9 @@
+@mixin hideOnMobile {
+  b {
+    display: none;
+
+    @media (min-width: 38rem) {
+      display: inline;
+    }
+  }
+}
