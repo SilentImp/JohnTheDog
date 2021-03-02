@@ -2,20 +2,7 @@ import React from 'react';
 import "@testing-library/jest-dom/extend-expect";
 import { render, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import matchMediaPolyfill from "mq-polyfill";
 import CurrencySelector from "./CurrencySelector";
-
-beforeAll(() => {
-  matchMediaPolyfill(window);
-  window.resizeTo = function resizeTo(width, height) {
-    Object.assign(this, {
-      innerWidth: width,
-      innerHeight: height,
-      outerWidth: width,
-      outerHeight: height,
-    }).dispatchEvent(new this.Event("resize"));
-  };
-});
 
 const renderComponent = (onChangeHandler) => render(
   <CurrencySelector 
