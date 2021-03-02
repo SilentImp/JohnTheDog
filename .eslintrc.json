@@ -1,0 +1,57 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/react",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "alias": {
+        "extensions": [".js", ".jsx"],
+        "map": [
+          ["components", "./components"],
+          ["public", "./public"],
+          ["contexts", "./contexts"],
+          ["styles", "./styles"],
+          ["configs", "./configs"],
+          ["constants", "./constants"],
+          ["utils", "./utils"]
+        ]
+      }
+    }
+  },
+  "rules": {
+    "react/jsx-props-no-spreading": 0,
+    "import/prefer-default-export": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "react/no-unescaped-entities": 0,
+    "jsx-a11y/no-autofocus": 0
+  },
+  "plugins": []
+}

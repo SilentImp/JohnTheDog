@@ -1,0 +1,13 @@
+# dependencies
+node_modules
+
+# analyze
+coverage
+
+# misc
+.DS_Store
+.env
+.next
+.vscode
+npm-debug.log*
+node_modules

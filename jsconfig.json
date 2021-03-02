@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "public/*": ["public/*"],
+      "components/*": ["components/*"],
+      "contexts/*": ["contexts/*"],
+      "styles/*": ["styles/*"],
+      "configs/*": ["configs/*"],
+      "constants/*": ["constants/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
