@@ -1,0 +1,27 @@
+@import "styles/helpers.scss";
+
+.CurrencySelector {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+
+  @include hideOnMobile;
+
+  select {
+    appearance: none;
+    border-radius: 0;
+    border-style: none;
+    border-bottom: var(--border-width) solid var(--border-color);
+    box-sizing: border-box;
+    line-height: 2.8rem;
+    height: 2.8rem;
+    font-size: 2rem;
+    margin-inline-start: var(--space-s);
+    text-indent: 0.01px;
+    text-overflow: '';
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23aaa' d='M 0,0 L 24,0 L 12,24 L 0,0 z' /%3E%3C/svg%3E");
+    background-size: auto .5rem;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+  }
+}
