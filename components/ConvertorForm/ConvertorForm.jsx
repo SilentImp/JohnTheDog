@@ -8,7 +8,9 @@ import Config from 'configs/currencyConfig';
 import styles from "./ConvertorForm.module.scss";
 
 export const getPrefixAndSufix = (amount, currency) => {
-  const formatedInput = new Intl.NumberFormat(Config.DEFAULT_LOCALE, { style: 'currency', currency, minimumSignificantDigits: 1 }).formatToParts(amount);
+// eslint-disable-next-line no-restricted-globals
+  const value = isNaN(amount) ? 0 : amount;
+  const formatedInput = new Intl.NumberFormat(Config.DEFAULT_LOCALE, { style: 'currency', currency, minimumSignificantDigits: 1 }).formatToParts(value);
   const types = ['integer', 'decimal', 'fraction'];
   const currencyIndex = formatedInput.findIndex(({type}) => type === "currency");
   const valueIndex = formatedInput.findIndex(({type}) => types.includes(type))
@@ -21,7 +23,8 @@ export const getPrefixAndSufix = (amount, currency) => {
   }
 }
 
-export const getOutput = (amount, currency) => new Intl.NumberFormat(Config.DEFAULT_LOCALE, { style: 'currency', currency, minimumSignificantDigits: 1 }).format(amount);
+// eslint-disable-next-line no-restricted-globals
+export const getOutput = (amount, currency) => new Intl.NumberFormat(Config.DEFAULT_LOCALE, { style: 'currency', currency, minimumSignificantDigits: 1 }).format(isNaN(amount) ? 0 : amount);
 
 const ConvertorForm = ({
   className,
