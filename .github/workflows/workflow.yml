@@ -1,4 +1,4 @@
-name: Test
+name: Test and Deploy Workflow
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint:
-    name: Lint and test code
+    name: Lint code
     runs-on: ubuntu-latest
 
     steps:
@@ -24,14 +24,31 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+  test:
+    name: Test code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Test
         run: npm t
 
-  build:
+  deploy:
     name: Deploy
+    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
-    needs: lint
+    needs: [lint, test]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -54,7 +71,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          push: false
+          push: true
           tags: silentimp/currencyconvertor:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
