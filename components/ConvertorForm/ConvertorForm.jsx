@@ -122,6 +122,15 @@ const ConvertorForm = ({
       onSubmit={submitHandler}
       action="/"
     >
+      <noscript>
+        <button 
+          onClick={switchHandler}
+          type="submit"
+          className={styles.ConvertorForm__Submit}
+        >
+          Convert
+        </button>
+      </noscript>
       <CurrencySelector 
         value={sourceCurrency} 
         onChange={onChangeSourceHandler} 

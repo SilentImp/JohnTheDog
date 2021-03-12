@@ -14,14 +14,35 @@
     "input input"
     "rate switch"
     "to to"
-    "output output";
+    "output output"
+    "submit submit";
 
   @media (min-width: 38rem) {
     grid-template-columns: 1fr minmax(min-content, auto) 1fr;
     grid-template-areas: 
       "from switch to" 
       "input . output"
-      ". . rate";
+      "submit . rate";
+  }
+
+  noscript {
+    display: contents;
+  }
+
+  &__Submit {
+    all: unset;
+    appearance: none;
+    color: var(--color-text-light);
+    background-color: var(--color-active);
+    grid-area: submit;
+    padding: var(--space-s) var(--space-m);
+    line-height: var(--line-height-text);
+    cursor: pointer;
+    transition: .3s background-color;
+
+    &:hover {
+      background-color: var(--color-active-hover);
+    }
   }
 
   &__Switch {
@@ -32,6 +53,7 @@
     cursor: pointer;
     color: var(--color-text);
 
+    transition: .3s color;
     transform: translateX(calc(-50vw + var(--gap)));
     text-indent: calc(50vw - var(--gap));
     width: calc(100vw - calc(var(--gap) * 2));
@@ -113,6 +135,7 @@
 
     @include hideOnMobile;
     font-size: 2rem;
+    line-height: 3rem;
     text-align: center;
     color: var(--color-text);
     justify-self: end;
