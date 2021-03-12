@@ -45,7 +45,7 @@ const ConvertorForm = ({
 
   if (defaultRate) {
     const defaultConverted = currencyjs(amount).multiply(defaultRate).value;
-    const prefixAndSufix = getPrefixAndSufix(amount, targetCurrency);
+    const prefixAndSufix = getPrefixAndSufix(amount, sourceCurrency);
     defaultOutput = getOutput(defaultConverted, targetCurrency);
     defaultPrefix = prefixAndSufix.prefix;
     defaultPostfix = prefixAndSufix.postfix;

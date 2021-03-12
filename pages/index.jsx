@@ -13,6 +13,7 @@ export async function getServerSideProps(context) {
   const from = context?.query?.switch ? toDefault : fromDefault;
   const to = context?.query?.switch ? fromDefault : toDefault;
   const value = body?.value || Config.DEFAULT_AMOUNT;
+  
   try {
     rates = await Exchanger.getExchangeRate(from);
   } catch (error) {
