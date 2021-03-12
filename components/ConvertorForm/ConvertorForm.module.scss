@@ -29,6 +29,11 @@
     display: contents;
   }
 
+  h1 {
+    position: fixed;
+    left: -2000px;
+  }
+
   &__Submit {
     all: unset;
     appearance: none;

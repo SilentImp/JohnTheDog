@@ -121,7 +121,9 @@ const ConvertorForm = ({
       method="POST" 
       onSubmit={submitHandler}
       action="/"
+      role="main"
     >
+      <h1>Currency Convertor Form</h1>
       <noscript>
         <button 
           onClick={switchHandler}
