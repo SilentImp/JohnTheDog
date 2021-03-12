@@ -136,6 +136,7 @@ const ConvertorForm = ({
         type="submit"
         formAction="/?switch=true"
         className={styles.ConvertorForm__Switch}
+        tabIndex="0"
       >
         Switch
       </button>
