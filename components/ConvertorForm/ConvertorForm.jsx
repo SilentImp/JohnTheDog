@@ -45,7 +45,7 @@ const ConvertorForm = ({
 
   if (defaultRate) {
     const defaultConverted = currencyjs(amount).multiply(defaultRate).value;
-    const prefixAndSufix = getPrefixAndSufix(amount, targetCurrency);
+    const prefixAndSufix = getPrefixAndSufix(amount, sourceCurrency);
     defaultOutput = getOutput(defaultConverted, targetCurrency);
     defaultPrefix = prefixAndSufix.prefix;
     defaultPostfix = prefixAndSufix.postfix;
@@ -121,7 +121,17 @@ const ConvertorForm = ({
       method="POST" 
       onSubmit={submitHandler}
       action="/"
+      role="main"
     >
+      <h1>Currency Convertor Form</h1>
+      <noscript>
+        <button 
+          type="submit"
+          className={styles.ConvertorForm__Submit}
+        >
+          Convert
+        </button>
+      </noscript>
       <CurrencySelector 
         value={sourceCurrency} 
         onChange={onChangeSourceHandler} 
@@ -151,7 +161,7 @@ const ConvertorForm = ({
       <label className={styles.ConvertorForm__Input}>
         {prefix}
         <input 
-          autoComplete="off" 
+          autoComplete="off"
           placeholder="0"
           name="value" 
           size="1" 

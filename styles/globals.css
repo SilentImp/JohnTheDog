@@ -2,8 +2,12 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --color-text: #333;
+  --color-text-light: #fff;
   --color-help: #aaa;
   --color-active: #1f76b4;
+  --color-active-hover: #176094;
+
+  --line-height-text: 2rem;
 
   --desktop: 80rem;
   --tablet: 38rem;
