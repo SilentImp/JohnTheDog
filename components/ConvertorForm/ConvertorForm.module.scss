@@ -26,10 +26,11 @@
   }
 
   noscript {
-    display: contents;
+    grid-area: submit;
   }
 
   h1 {
+    grid-area: title;
     position: fixed;
     left: -2000px;
   }
@@ -41,9 +42,12 @@
     background-color: var(--color-active);
     grid-area: submit;
     padding: var(--space-s) var(--space-m);
+    text-indent: 0;
+    font-size: 1rem;
     line-height: var(--line-height-text);
     cursor: pointer;
     transition: .3s background-color;
+    width: 100%;
 
     &:hover {
       background-color: var(--color-active-hover);

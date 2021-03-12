@@ -126,7 +126,6 @@ const ConvertorForm = ({
       <h1>Currency Convertor Form</h1>
       <noscript>
         <button 
-          onClick={switchHandler}
           type="submit"
           className={styles.ConvertorForm__Submit}
         >
@@ -162,7 +161,7 @@ const ConvertorForm = ({
       <label className={styles.ConvertorForm__Input}>
         {prefix}
         <input 
-          autoComplete="off" 
+          autoComplete="off"
           placeholder="0"
           name="value" 
           size="1" 
